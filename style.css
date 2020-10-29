@@ -1,0 +1,198 @@
+@font face {
+  font-family:'nexa';
+  src: url("./fonts/nexa.oft");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #333;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.container {
+  position: relative;
+  font: 1.125em/ 1.25 nexa;
+}
+.container:before {
+  position: absolute;
+  top: -1.5em;
+  right: -1.5em;
+  bottom: -1.5em;
+  left: -1.5em;
+  background: linear-gradient(#ccc 0.125em, transparent 0) 50% 0.6875em/ 17.5em 19em repeat-y, linear-gradient(90deg, #ccc 0.125em, transparent 0) 0.6875em 50%/ 19em 17.5em repeat-x;
+  content: "";
+}
+
+#blob {
+  box-sizing: border-box;
+  border: solid .5em transparent;
+  width: 17.5em;
+  height: 17.5em;
+  border-radius: var(--rx00) var(--rx01) var(--rx11) var(--rx10)/var(--ry00) var(--ry01) var(--ry11) var(--ry10);
+  transform: scale(0.9875);
+  background: linear-gradient(#e74c3c, #3498db) border-box;
+}
+
+.iso {
+  isolation: isolate;
+}
+
+.wrap {
+  --flag: 0;
+  position: absolute;
+  top: calc(var(--v)*(1 - var(--ax))*100%);
+  left: calc(var(--h)*var(--ax)*100%);
+  width: 17.5em;
+  height: 1.5em;
+  --rot: calc(var(--ax)*90deg);
+  transform: translate(calc(var(--h)*var(--ax)*1.5em - 50%), calc(-1*(1 - var(--v))*(1 - var(--ax))*1.5em - 50%)) rotate(var(--rot)) translate(50%, 50%) scalex(var(--sf));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+input {
+  z-index: var(--flag);
+  border: solid 0 transparent;
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  font: inherit;
+  filter: Grayscale(calc(1 - var(--flag))) Contrast(calc(.1 + .9*var(--flag))) Brightness(calc(1.75 - .75*var(--flag)));
+  transition: filter 0.65s;
+}
+input::-webkit-slider-runnable-track, input::-webkit-slider-thumb, input {
+  -webkit-appearance: none;
+}
+input::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  width: 17.5em;
+  height: 0.125em;
+  background: transparent;
+}
+input::-moz-range-track {
+  box-sizing: border-box;
+  width: 17.5em;
+  height: 0.125em;
+  background: transparent;
+}
+input::-ms-track {
+  box-sizing: border-box;
+  width: 17.5em;
+  height: 0.125em;
+  background: transparent;
+}
+input::-webkit-slider-thumb {
+  margin-top: -0.6875em;
+  box-sizing: border-box;
+  border: solid 3px #3498db;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #333;
+  pointer-events: auto;
+  cursor: move;
+}
+input::-moz-range-thumb {
+  box-sizing: border-box;
+  border: solid 3px #3498db;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #e6cce6;
+  pointer-events: auto;
+  cursor: move;
+}
+input::-ms-thumb {
+  margin-top: 0;
+  box-sizing: border-box;
+  border: solid 3px #3498db;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: #e6cce6;
+  pointer-events: auto;
+  cursor: move;
+}
+input::-ms-fill-lower, input::-ms-fill-upper {
+  background: transparent;
+}
+input::-ms-tooltip {
+  display: none;
+}
+input:focus {
+  outline: solid 0px transparent;
+}
+input:focus, input:focus + label {
+  --flag: 1 ;
+}
+
+label {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: solid 3px transparent;
+  padding: .5em 1vmin;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  max-width: 8em;
+  height: 4em;
+  border-radius: .375em;
+  --pos:
+  	translate(calc(var(--val)/100*(17.5em - 1.5em) + 0.75em - 50%),
+  						calc(-1*((1 - var(--ax))*(1 - var(--v)) + var(--ax)*var(--h))*(100% + 1.5em)))
+  	scalex(var(--sf))
+  	rotate(calc(-1*var(--rot)))
+  	translate(calc(var(--ax)*(1 - 2*var(--h))*(2em - 50%)));
+  transform: var(--pos) scale(var(--flag));
+  opacity: calc(.999*var(--flag));
+  background: #3498db padding-box;
+  color: #fff;
+  text-align: center;
+  transition: opacity 0.65s;
+  pointer-events: auto;
+}
+
+span {
+  width: 100%;
+}
+
+var {
+  font: 1.25em/1 nexa;
+}
+
+output {
+  color: yellow;
+  font: 1em/ 1.25 nexa;
+}
+output:before {
+  content: ": ";
+}
+output:after {
+  counter-reset: val var(--val);
+  content: counter(val) "%";
+}
+
+pre {
+  padding: .5em;
+  background: #333;
+  color: #ddd;
+  font: 1em/ 1.25 nexa;
+}

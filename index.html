@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="icon" href="./images/radius-logo.png"/>
+<link rel="stylesheet" href="./style.css">
+<title>Border Radius Preview</title>
+</head>
+<body>
+<section>
+  <div class="container">
+    <div class="iso">
+      <div class="wrap" style="--v: 0; --h: 0; --ax: 0; --val: 47; --sf: 1">
+        <input type="range" value="47" id="rx00"/>
+        <label for="rx00"><span>top left</span>
+          <var>rx</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 0; --h: 0; --ax: 1; --val: 39; --sf: 1">
+        <input type="range" value="39" id="ry00"/>
+        <label for="ry00"><span>top left</span>
+          <var>ry</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 0; --h: 1; --ax: 0; --val: 42; --sf: -1">
+        <input type="range" value="42" id="rx01"/>
+        <label for="rx01"><span>top right</span>
+          <var>rx</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 0; --h: 1; --ax: 1; --val: 44; --sf: 1">
+        <input type="range" value="44" id="ry01"/>
+        <label for="ry01"><span>top right</span>
+          <var>ry</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 1; --h: 0; --ax: 0; --val: 45; --sf: 1">
+        <input type="range" value="45" id="rx10"/>
+        <label for="rx10"><span>bottom left</span>
+          <var>rx</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 1; --h: 0; --ax: 1; --val: 43; --sf: -1">
+        <input type="range" value="43" id="ry10"/>
+        <label for="ry10"><span>bottom left</span>
+          <var>ry</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 1; --h: 1; --ax: 0; --val: 45; --sf: -1">
+        <input type="range" value="45" id="rx11"/>
+        <label for="rx11"><span>bottom right</span>
+          <var>rx</var>
+          <output></output>
+        </label>
+      </div>
+      <div class="wrap" style="--v: 1; --h: 1; --ax: 1; --val: 46; --sf: -1">
+        <input type="range" value="46" id="ry11"/>
+        <label for="ry11"><span>bottom right</span>
+          <var>ry</var>
+          <output></output>
+        </label>
+      </div>
+    </div>
+    <div id="blob" style="--rx00: 47%;--ry00: 39%;--rx01: 42%;--ry01: 44%;--rx10: 45%;--ry10: 43%;--rx11: 45%;--ry11: 46%;"></div>
+  </div>
+</section>
+<pre id="code"></pre>
+  <script  src="./script.js"></script>
+</body>
+</html>
