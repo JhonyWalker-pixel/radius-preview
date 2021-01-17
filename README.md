@@ -7,7 +7,7 @@
 
 A web application for you to visualize the best border radius to be used in your projects or if you want to study your values by viewing the transformation in real time. Come and try it by clicking [here](https://jhonywalker-pixel.github.io/radius-preview/)
 
-## :computer: Languages used
+## :computer: Used languages
 
 In addition to our dear HTML and CSS I used a very well-known language:
 * Vanilla JS
